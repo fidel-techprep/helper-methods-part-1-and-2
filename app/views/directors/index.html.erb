@@ -1,0 +1,26 @@
+<h1> List of all directors </h1>
+
+<hr>
+
+<%= link_to "Add a new director", new_director_path %>
+
+<hr>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Dob</th>
+    <th> </th>
+  </tr>
+
+  <% @directors.each do |director| %>
+    <tr>
+      <td> <%= director.name %></td>
+      <td> <%= director.dob %></td>
+      <td> <%= link_to "Show details", director %></td>
+    </tr>
+    
+      
+    
+  <% end %>
+</table>

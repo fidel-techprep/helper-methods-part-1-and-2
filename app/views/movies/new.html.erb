@@ -4,21 +4,24 @@
   <p style="color: red;"><%= message %></p>
 <% end %>
 
-<%= form_with(model: @movie, data: { turbo: false }) do |form| %>
+
+<form action="/movies" method="post" data-turbo="false">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
    <div>
+    <%= label_tag :title %>
 
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-
+    <%= text_field_tag "movie[title]" %>
   </div>
 
   <div>
-    
-    <%= form.label :description %>
-    <%=  form.text_area :description, rows: "3" %>
-    
+    <%= label_tag :description_box, "Description" %>
+
+    <%= text_area_tag "movie[description]", "", { id: "description_box", rows: 3 } %>
   </div>
 
-  <%= form.button %>
-  
-<% end %>
+  <%= button_tag "Create movie" %>
+</form>
+
+
+ 
