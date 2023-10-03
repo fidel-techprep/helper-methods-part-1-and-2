@@ -1,0 +1,26 @@
+<div>
+  <h1> Director #<%= @director.id %></h1>
+  
+  <div>
+    <%= link_to "Go back", directors_path %>
+  </div>
+  
+  <div>
+    <%= link_to "Edit director", edit_director_path %>
+  </div>
+  
+  <div>
+    <%= link_to "Delete director", @director, data: { turbo_method: :delete } %>
+  </div>
+</div>
+
+<dl>
+  <dt>Name</dt>
+  <dd><%= @director.name %></dd>
+  <dt>Dob</dt>
+  <dd><%= @director.dob %></dd>
+  <dt>Created at</dt>
+  <dd><%= time_ago_in_words(@director.created_at) %></dd>
+  <dt>Updated at</dt>
+  <dd><%= time_ago_in_words(@director.updated_at) %></dd>
+</dl>
